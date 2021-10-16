@@ -34,12 +34,12 @@ export default function Header() {
             style={type?{backgroundImage: `linear-gradient(${type.bgColor},${type.bgColor},rgba(255,255,255,0))`}:{}}
             className={styles.Header}>
             <Link href={router.route == '/about'? '/test': '/about'} passHref>
-                <a style={router.route !== '/' && router.route !== '/about' ? {color: '#fff'} : null} className={styles.Left}>
+                <a style={router.route !== '/' && router.route !== '/about' ? {color: '#fff'} : null} className={styles.Link}>
                     {router.route == '/about'? `Take the Test`: `About`}
                 </a>
             </Link>
             <Link href={router.route == '/types'? '/test': '/types'} passHref>
-                <a style={router.route !== '/' && router.route !== '/about' ? {color: '#fff'} : null} className={styles.Right}>
+                <a style={router.route !== '/' && router.route !== '/about' ? {color: '#fff'} : null} className={styles.Link}>
                     {router.route == '/types'? `Take the Test`: `The Types`}
                 </a>
             </Link>
