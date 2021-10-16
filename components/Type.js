@@ -8,7 +8,7 @@ export default function Type({id}) {
     const [width, setWidth] = useState(0)
     useEffect(() => {
         setWidth(window.screen.width)
-    })
+    }, [])
     
     var type = null
     for (var i = 0; i < TypesData.length; i++) {

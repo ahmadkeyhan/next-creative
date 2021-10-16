@@ -21,7 +21,7 @@ export default function Test() {
     const [width, setWidth] = useState(0)
     useEffect(() => {
         setWidth(window.screen.width)
-    })
+    }, [])
 
     const variants = {
         initial: { opacity:0 },
