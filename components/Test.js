@@ -18,6 +18,11 @@ export default function Test() {
     const [init,setInit] = useState(false)
     const [mute,setMute] = useState(true)
 
+    const [width, setWidth] = useState(0)
+    useEffect(() => {
+        setWidth(window.screen.width)
+    })
+
     const variants = {
         initial: { opacity:0 },
         animate: {
@@ -115,7 +120,7 @@ export default function Test() {
                                 })
                     }
                 </motion.div>
-                <motion.div
+                { width > 500 && vidSource ? null : <motion.div
                     variants={variants}
                     initial='initial'
                     animate={ init ? 'animate' : 'initial'}
@@ -124,8 +129,8 @@ export default function Test() {
                     <div className={styles.Question}>
                         {TestData[i].question}
                     </div> 
-                </motion.div>
-                <motion.div
+                </motion.div>}
+                { width < 500 ? <motion.div
                     variants={variants}
                     initial='initial'
                     animate={ init ? 'animate' : 'initial'}
@@ -133,6 +138,7 @@ export default function Test() {
                     className={styles.Row}>
                     { vidSource ? <video src={vidSource}
                                     id='video'
+                                    className={styles.Video}
                                     style={{width: '100vw', objectFit: 'cover'}}                                    
                                     autoPlay
                                     muted={mute}
@@ -141,8 +147,18 @@ export default function Test() {
                                         setVidSource(null)
                                         setTime(null)
                                     }} /> : null }
-                </motion.div>
-                <motion.div
+                </motion.div> : vidSource ? <video src={vidSource}
+                                    id='video'
+                                    className={styles.Video}
+                                    style={{width: '100vw', objectFit: 'cover'}}                                    
+                                    autoPlay
+                                    muted={mute}
+                                    onEnded={() => {
+                                        setI(i+1)
+                                        setVidSource(null)
+                                        setTime(null)
+                                    }} /> : null }
+                { width > 500 && vidSource ? null : <motion.div
                     variants={variants}
                     initial='initial'
                     animate={ init ? 'animate' : 'initial'}
@@ -178,7 +194,7 @@ export default function Test() {
                                 setVidSource(TestData[i].answer2[2])}}>
                             {TestData[i].answer2[0]}
                         </button> }
-                </motion.div>
+                </motion.div>}
             </motion.div>
         )
     }
