@@ -6,7 +6,7 @@
 .Banner {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -36,10 +36,17 @@
   width: 100%;
 }
 
+.ParaFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: 100%;
+  flex: 1;
+}
+
 .ParaBox {
   border: 2px solid white;
   margin-top: -2px;
-  z-index: 2;
 }
 
 .Heading {
@@ -87,4 +94,20 @@
   color: white;
   padding: 0.5rem 0.5rem 0.25rem 0.5rem;
   border-radius: 1rem;
+}
+
+@media screen and (min-width: 500px) {
+  .Banner {
+    width: 40%;
+  }
+
+  .Video {
+    width: 70%;
+  }
+
+  .ParaFlex {
+    width: 50%;
+    margin-top: -70vh;
+    margin: -70vh 2rem 0 2rem;
+  }
 }
