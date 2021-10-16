@@ -1,4 +1,5 @@
-import Type from "../../components/Type"
+import dynamic from 'next/dynamic'
+const Type = dynamic(() => import('../../components/Type'))
 
 function type({id, darkMode}) {
     return <Type id={id} darkMode={darkMode}/>
